@@ -1,0 +1,43 @@
+" Ignore things
+let NERDTreeIgnore = ['\.DS_Store$', '\.git$', '\.hg$']
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+
+" Set encoding
+set encoding=utf-8
+
+" Whitespace stuff
+set nowrap
+
+noremap <silent> ,h :wincmd h<CR>
+noremap <silent> ,j :wincmd j<CR>
+noremap <silent> ,k :wincmd k<CR>
+noremap <silent> ,l :wincmd l<CR>
+noremap <silent> ,sb :wincmd p<CR>
+
+let g:indent_guides_enable_on_vim_startup=0
+
+set nolist
+
+set directory=.,$TEMP
+
+set backup
+set backupdir=~/.vim/backups
+
+set nospell
+
+autocmd BufRead,BufNewFile *.php set shiftwidth=4
+
+let g:syntastic_php_checkers = ["php", "phpmd"]
+
+colorscheme molokai
+color molokai
+
+map <F14> mzgg=G`z
+
+let g:ctrlp_map = '<c-p>'
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+ endif
+
+ set nofoldenable    " disable folding"
