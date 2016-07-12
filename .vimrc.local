@@ -40,4 +40,6 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
  endif
 
- set nofoldenable    " disable folding"
+set nofoldenable                " disable code folding
+let g:DisableAutoPHPFolding = 1 " disable PIV's folding
+
