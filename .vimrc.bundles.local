@@ -2,3 +2,6 @@ Bundle 'fatih/vim-go'
 Bundle 'ctrlpvim/ctrlp'
 Plugin 'dracula/vim'
 Bundle 'elixir-lang/vim-elixir'
+
+
+UnBundle 'arnaud-lb/vim-php-namespace'
