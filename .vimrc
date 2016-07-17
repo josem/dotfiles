@@ -1,5 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -33,10 +31,25 @@ Plugin 'dkprice/vim-easygrep'
 
 Plugin 'vitalk/vim-simple-todo'
 
+Plugin 'JazzCore/ctrlp-cmatcher'
+
+Plugin 'tpope/vim-unimpaired'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#disable_auto_complete=1
+
+let g:airline_powerline_fonts = 1
+set laststatus=2
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.space = "\ua0"
 set background=dark         " Assume a dark background
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
@@ -184,6 +197,10 @@ noremap <silent> ,k :wincmd k<CR>
 noremap <silent> ,l :wincmd l<CR>
 noremap <silent> ,sb :wincmd p<CR>
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 set splitbelow
 set splitright
 
@@ -225,5 +242,25 @@ set nocursorcolumn
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#disable_auto_complete=1
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+
+set autoread 
+
+let g:syntastic_enable_signs=0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+set clipboard=unnamed
+
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
+
