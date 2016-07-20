@@ -20,8 +20,6 @@ Plugin '2072/PHP-Indenting-for-VIm'
 
 Bundle 'scrooloose/syntastic'
 
-Plugin 'spf13/PIV'
-
 Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'dkprice/vim-easygrep'
@@ -266,3 +264,4 @@ autocmd BufReadPost *
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
+set title  " Show file name in title bar
